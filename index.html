@@ -1,113 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Free School Project Generator | Class 6-12 AI Project Maker</title>
-<meta name="description" content="Generate detailed school projects and PowerPoint outlines instantly for any subject using AI. Easy, free, and perfect for students from Class 6 to 12." />
-<meta name="keywords" content="school project generator, class 9 project, science project ppt, free school project, project topic generator, AI school projects" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHFZVDTLGF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JHFZVDTLGF');
+  </script>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JHFZVDTLGF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JHFZVDTLGF');
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free School Project Generator | Class 6-12 AI Project Maker</title>
+  <meta name="description" content="Generate detailed school projects and PowerPoint outlines instantly for any subject using AI. Easy, free, and perfect for students from Class 6 to 12." />
+  <meta name="keywords" content="school project generator, class 9 project, science project ppt, free school project, project topic generator, AI school projects" />
 
-<!-- jsPDF for PDF download -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- jsPDF for PDF download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f9fafb;
-    margin: 0;
-    padding: 0;
-    color: #2c3e50;
-  }
-  .container {
-    max-width: 600px;
-    margin: 50px auto 40px;
-    background: #fff;
-    padding: 30px 35px;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  }
-  h1 {
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #1d3557;
-  }
-  .instructions {
-    background: #d6e9fc;
-    border-left: 5px solid #3498db;
-    padding: 15px 20px;
-    border-radius: 6px;
-    font-size: 15px;
-    line-height: 1.5;
-    margin-bottom: 25px;
-  }
-  label {
-    display: block;
-    margin-top: 20px;
-    font-weight: 600;
-    font-size: 15px;
-  }
-  select, input[type="text"], textarea {
-    width: 100%;
-    padding: 12px 14px;
-    margin-top: 6px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
-  }
-  select:focus, input[type="text"]:focus, textarea:focus {
-    border-color: #3498db;
-    outline: none;
-  }
-  textarea {
-    resize: vertical;
-    min-height: 220px;
-  }
-  button {
-    width: 100%;
-    margin-top: 30px;
-    background-color: #27ae60;
-    color: #fff;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 14px 0;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  button:hover {
-    background-color: #1e874b;
-  }
-  button.secondary {
-    background-color: #2980b9;
-    margin-top: 15px;
-  }
-  button.secondary:hover {
-    background-color: #1c5c8b;
-  }
-  @media (max-width: 650px) {
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      padding: 0;
+      color: #2c3e50;
+    }
     .container {
-      margin: 20px 15px 40px;
-      padding: 25px 20px;
+      max-width: 600px;
+      margin: 50px auto 40px;
+      background: #fff;
+      padding: 30px 35px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+    h1 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #1d3557;
+    }
+    .instructions {
+      background: #d6e9fc;
+      border-left: 5px solid #3498db;
+      padding: 15px 20px;
+      border-radius: 6px;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    select, input[type="text"], textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-top: 6px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    select:focus, input[type="text"]:focus, textarea:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 220px;
     }
     button {
-      font-size: 16px;
-      padding: 12px 0;
+      width: 100%;
+      margin-top: 30px;
+      background-color: #27ae60;
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 14px 0;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
-  }
-</style>
+    button:hover {
+      background-color: #1e874b;
+    }
+    button.secondary {
+      background-color: #2980b9;
+      margin-top: 15px;
+    }
+    button.secondary:hover {
+      background-color: #1c5c8b;
+    }
+    @media (max-width: 650px) {
+      .container {
+        margin: 20px 15px 40px;
+        padding: 25px 20px;
+      }
+      button {
+        font-size: 16px;
+        padding: 12px 0;
+      }
+    }
+  </style>
 </head>
 <body>
   <main class="container" role="main" aria-label="School Project Generator">
