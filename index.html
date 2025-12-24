@@ -1,88 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>School Project Generator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: Arial;
-      background: #f4f6f8;
-      margin: 0;
-      padding: 20px;
-    }
-    .box {
-      max-width: 600px;
-      background: white;
-      padding: 20px;
-      margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
-    }
-    h1 {
-      text-align: center;
-    }
-    label {
-      margin-top: 15px;
-      display: block;
-      font-weight: bold;
-    }
-    select, input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      font-size: 16px;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Free School Project Generator | Class 6-12 AI Project Maker</title>
+<meta name="description" content="Generate detailed school projects and PowerPoint outlines instantly for any subject using AI. Easy, free, and perfect for students from Class 6 to 12." />
+<meta name="keywords" content="school project generator, class 9 project, science project ppt, free school project, project topic generator, AI school projects" />
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9fafb;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+  }
+  .container {
+    max-width: 600px;
+    margin: 50px auto 40px;
+    background: #fff;
+    padding: 30px 35px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
+  h1 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1d3557;
+  }
+  .instructions {
+    background: #d6e9fc;
+    border-left: 5px solid #3498db;
+    padding: 15px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+  label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  select, input[type="text"], textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 6px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+  }
+  select:focus, input[type="text"]:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 220px;
+  }
+  button {
+    width: 100%;
+    margin-top: 30px;
+    background-color: #27ae60;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 14px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #1e874b;
+  }
+  button.secondary {
+    background-color: #2980b9;
+    margin-top: 15px;
+  }
+  button.secondary:hover {
+    background-color: #1c5c8b;
+  }
+  @media (max-width: 650px) {
+    .container {
+      margin: 20px 15px 40px;
+      padding: 25px 20px;
     }
     button {
-      background: #4CAF50;
-      color: white;
-      border: none;
-      margin-top: 20px;
-      cursor: pointer;
+      font-size: 16px;
+      padding: 12px 0;
     }
-    textarea {
-      height: 220px;
-    }
-  </style>
+  }
+</style>
 </head>
-
 <body>
-<div class="box">
-  <h1>📘 School Project Generator</h1>
-
-  <label>Class</label>
-  <select id="cls">
-    <option>6</option><option>7</option><option>8</option>
-    <option>9</option><option>10</option><option>11</option><option>12</option>
-  </select>
-
-  <label>Subject</label>
-  <select id="sub">
-    <option>Science</option>
-    <option>Biology</option>
-    <option>History</option>
-    <option>Geography</option>
-    <option>Civics</option>
-    <option>English</option>
-  </select>
-
-  <label>Topic</label>
-  <input id="topic" placeholder="Example: Photosynthesis">
-
-  <button onclick="makePrompt()">Generate Prompt</button>
-
-  <label>Gemini AI Prompt</label>
-  <textarea id="output"></textarea>
-
-  <button onclick="openGemini()">Open Gemini AI</button>
-</div>
-
-<script>
-function makePrompt() {
-  let cls = document.getElementById("cls").value;
-  let sub = document.getElementById("sub").value;
-  let topic = document.getElementById("topic").value;
-
-  let prompt = `
+  <main class="container" role="main" aria-label="School Project Generator">
+    <h1>📚 School Project Generator</h1>
+    <div class="instructions" aria-live="polite">
+      <strong>How to Use:</strong><br />
+      1. Select your Class and Subject.<br />
+      2. Enter your Project Topic.<br />
+      3. Click <em>Generate Prompt</em>.<br />
+      4. Click <em>Open Gemini AI</em> and paste the prompt.<br />
+      5. Get your project report, PPT outline, and cover page instantly!
+    </div>
+    
+    <label for="cls">Class</label>
+    <select id="cls" aria-required="true">
+      <option>6</option><option>7</option><option>8</option>
+      <option>9</option><option>10</option><option>11</option><option>12</option>
+    </select>
+    
+    <label for="sub">Subject</label>
+    <select id="sub" aria-required="true">
+      <option>Science</option>
+      <option>Biology</option>
+      <option>History</option>
+      <option>Geography</option>
+      <option>Civics</option>
+      <option>English</option>
+    </select>
+    
+    <label for="topic">Project Topic</label>
+    <input id="topic" type="text" placeholder="Example: Photosynthesis" aria-required="true" />
+    
+    <button id="generateBtn" type="button">Generate Prompt</button>
+    
+    <label for="output">Gemini AI Prompt</label>
+    <textarea id="output" readonly aria-live="polite" aria-label="Generated Gemini AI prompt"></textarea>
+    
+    <button id="openGeminiBtn" type="button" class="secondary">Open Gemini AI</button>
+  </main>
+  
+  <script>
+    const generateBtn = document.getElementById('generateBtn');
+    const openGeminiBtn = document.getElementById('openGeminiBtn');
+    const output = document.getElementById('output');
+    
+    generateBtn.addEventListener('click', () => {
+      const cls = document.getElementById('cls').value.trim();
+      const sub = document.getElementById('sub').value.trim();
+      const topic = document.getElementById('topic').value.trim();
+      
+      if (!topic) {
+        alert('Please enter a project topic.');
+        return;
+      }
+      
+      const prompt = `
 You are a school teacher.
 
 Create a complete school project.
@@ -92,25 +160,24 @@ Subject: ${sub}
 Topic: ${topic}
 
 Rules:
-- Simple language
-- Headings and subheadings
-- Introduction, body, conclusion
-- Student-friendly
-- No plagiarism
-- Do not mention AI
+- Use simple language.
+- Include headings and subheadings.
+- Write an introduction, body, and conclusion.
+- Make it student-friendly.
+- No plagiarism.
+- Do not mention AI.
 
 Also generate:
-1. PowerPoint outline (10–12 slides)
-2. Cover page text
-`;
-
-  document.getElementById("output").value = prompt.trim();
-}
-
-function openGemini() {
-  window.open("https://gemini.google.com/app", "_blank");
-}
-</script>
-
+1. PowerPoint outline (10–12 slides).
+2. Cover page text.
+`.trim();
+      
+      output.value = prompt;
+    });
+    
+    openGeminiBtn.addEventListener('click', () => {
+      window.open('https://gemini.google.com/app', '_blank');
+    });
+  </script>
 </body>
 </html>
