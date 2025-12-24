@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://techycrazy.github.io/school-project-generator/sitemap.xml
