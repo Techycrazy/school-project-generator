@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School Project Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    .box {
+      max-width: 600px;
+      background: white;
+      padding: 20px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      margin-top: 15px;
+      display: block;
+      font-weight: bold;
+    }
+    select, input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 16px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    textarea {
+      height: 220px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="box">
+  <h1>📘 School Project Generator</h1>
+
+  <label>Class</label>
+  <select id="cls">
+    <option>6</option><option>7</option><option>8</option>
+    <option>9</option><option>10</option><option>11</option><option>12</option>
+  </select>
+
+  <label>Subject</label>
+  <select id="sub">
+    <option>Science</option>
+    <option>Biology</option>
+    <option>History</option>
+    <option>Geography</option>
+    <option>Civics</option>
+    <option>English</option>
+  </select>
+
+  <label>Topic</label>
+  <input id="topic" placeholder="Example: Photosynthesis">
+
+  <button onclick="makePrompt()">Generate Prompt</button>
+
+  <label>Gemini AI Prompt</label>
+  <textarea id="output"></textarea>
+
+  <button onclick="openGemini()">Open Gemini AI</button>
+</div>
+
+<script>
+function makePrompt() {
+  let cls = document.getElementById("cls").value;
+  let sub = document.getElementById("sub").value;
+  let topic = document.getElementById("topic").value;
+
+  let prompt = `
+You are a school teacher.
+
+Create a complete school project.
+
+Class: ${cls}
+Subject: ${sub}
+Topic: ${topic}
+
+Rules:
+- Simple language
+- Headings and subheadings
+- Introduction, body, conclusion
+- Student-friendly
+- No plagiarism
+- Do not mention AI
+
+Also generate:
+1. PowerPoint outline (10–12 slides)
+2. Cover page text
+`;
+
+  document.getElementById("output").value = prompt.trim();
+}
+
+function openGemini() {
+  window.open("https://gemini.google.com/app", "_blank");
+}
+</script>
+
+</body>
+</html>
