@@ -6,6 +6,19 @@
 <title>Free School Project Generator | Class 6-12 AI Project Maker</title>
 <meta name="description" content="Generate detailed school projects and PowerPoint outlines instantly for any subject using AI. Easy, free, and perfect for students from Class 6 to 12." />
 <meta name="keywords" content="school project generator, class 9 project, science project ppt, free school project, project topic generator, AI school projects" />
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JHFZVDTLGF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JHFZVDTLGF');
+</script>
+
+<!-- jsPDF for PDF download -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <style>
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -105,7 +118,7 @@
       2. Enter your Project Topic.<br />
       3. Click <em>Generate Prompt</em>.<br />
       4. Click <em>Open Gemini AI</em> and paste the prompt.<br />
-      5. Get your project report, PPT outline, and cover page instantly!
+      5. Optionally, download the prompt as a PDF.
     </div>
     
     <label for="cls">Class</label>
@@ -132,24 +145,26 @@
     <label for="output">Gemini AI Prompt</label>
     <textarea id="output" readonly aria-live="polite" aria-label="Generated Gemini AI prompt"></textarea>
     
+    <button id="downloadPdfBtn" type="button" class="secondary">Download Prompt as PDF</button>
     <button id="openGeminiBtn" type="button" class="secondary">Open Gemini AI</button>
   </main>
   
   <script>
     const generateBtn = document.getElementById('generateBtn');
     const openGeminiBtn = document.getElementById('openGeminiBtn');
+    const downloadPdfBtn = document.getElementById('downloadPdfBtn');
     const output = document.getElementById('output');
-    
+
     generateBtn.addEventListener('click', () => {
       const cls = document.getElementById('cls').value.trim();
       const sub = document.getElementById('sub').value.trim();
       const topic = document.getElementById('topic').value.trim();
-      
+
       if (!topic) {
         alert('Please enter a project topic.');
         return;
       }
-      
+
       const prompt = `
 You are a school teacher.
 
@@ -171,12 +186,43 @@ Also generate:
 1. PowerPoint outline (10–12 slides).
 2. Cover page text.
 `.trim();
-      
+
       output.value = prompt;
+
+      // Google Analytics Event
+      gtag('event', 'generate_prompt', {
+        'event_category': 'Button',
+        'event_label': 'Generate Prompt'
+      });
     });
-    
+
     openGeminiBtn.addEventListener('click', () => {
       window.open('https://gemini.google.com/app', '_blank');
+
+      gtag('event', 'open_gemini', {
+        'event_category': 'Button',
+        'event_label': 'Open Gemini AI'
+      });
+    });
+
+    downloadPdfBtn.addEventListener('click', () => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const text = output.value;
+
+      if (!text.trim()) {
+        alert('Please generate a prompt first!');
+        return;
+      }
+
+      const lines = doc.splitTextToSize(text, 180);
+      doc.text(lines, 10, 10);
+      doc.save('school_project_prompt.pdf');
+
+      gtag('event', 'download_pdf', {
+        'event_category': 'Button',
+        'event_label': 'Download PDF'
+      });
     });
   </script>
 </body>
